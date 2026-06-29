@@ -20,6 +20,13 @@ import AdminHome from './pages/dashboard/AdminHome';
 import AllUsers from './pages/dashboard/AllUsers';
 import AllDonations from './pages/dashboard/AllDonations';
 
+import { useAuth } from './context/AuthContext';
+
+const DashboardIndex = () => {
+  const { user } = useAuth();
+  return user?.role === 'donor' ? <DonorHome /> : <AdminHome />;
+};
+
 function App() {
   return (
     <Routes>
@@ -36,12 +43,12 @@ function App() {
 
       {/* Dashboard */}
       <Route path="/dashboard" element={<PrivateRoute><DashboardLayout /></PrivateRoute>}>
-        <Route index element={<DonorHome />} />
+        {/*  DashboardIndex use */}
+        <Route index element={<DashboardIndex />} />
         <Route path="profile" element={<Profile />} />
         <Route path="my-donation-requests" element={<MyDonationRequests />} />
         <Route path="create-donation-request" element={<CreateDonation />} />
         <Route path="edit-donation/:id" element={<EditDonation />} />
-        {/* Admin & Volunteer */}
         <Route path="all-users" element={<RoleRoute roles={['admin']}><AllUsers /></RoleRoute>} />
         <Route path="all-blood-donation-request" element={<RoleRoute roles={['admin','volunteer']}><AllDonations /></RoleRoute>} />
       </Route>
