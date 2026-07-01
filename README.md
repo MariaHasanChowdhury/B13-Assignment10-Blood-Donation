@@ -4,7 +4,7 @@
 BloodBridge is a full-stack blood donation platform that connects blood donors with those in need. Users can register as donors, create blood donation requests, search for donors by blood group and location, and contribute funds to support the organization. The platform supports three user roles: Admin, Volunteer, and Donor, each with different access levels and permissions.
 
 ## Live URL
-🌐 https://b13-assignment10-blood-donation-hi6y86r8b.vercel.app/
+🌐 https://b13-assignment10-blood-donation.vercel.app/
 
 ## Admin Credentials
 - 📧 Email: admin@bloodbridge.com
